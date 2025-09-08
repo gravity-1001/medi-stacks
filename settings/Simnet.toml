@@ -1,0 +1,7 @@
+# Clarinet simnet settings (satisfy tooling expecting a default simnet account)
+[network]
+name = "simnet"
+
+[accounts]
+[accounts.deployer]
+mnemonic = "twice kind fence tip hidden tilt action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hip blue scout claw"

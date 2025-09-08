@@ -1,0 +1,8 @@
+# Clarinet devnet settings
+[network]
+name = "devnet"
+
+# Clarinet requires a default deployer account for some commands
+[accounts]
+[accounts.deployer]
+mnemonic = "twice kind fence tip hidden tilt action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hip blue scout claw"

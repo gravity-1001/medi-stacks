@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .medical-gradient {
+    @apply bg-gradient-to-br from-medical-100 via-lime-500/20 to-teal-500/30;
+  }
+  
+  .crazy-gradient {
+    background: linear-gradient(135deg, #D4DCFF 0%, #96E072 25%, #0B7A75 50%, #5ABF4A 75%, #000000 100%);
+  }
+  
+  .medical-card {
+    @apply bg-gradient-to-br from-medical-100/90 via-white/95 to-lime-100/80 backdrop-blur-lg border-2 border-teal-500/30 shadow-2xl shadow-lime-500/20;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .medical-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(150, 224, 114, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+  
+  /* MediStacks Button System */
+  .medistacks-btn {
+    @apply font-black text-sm tracking-wider uppercase transition-all duration-300 transform relative overflow-hidden;
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .medistacks-btn-primary {
+    @apply medistacks-btn bg-gradient-to-r from-lime-500 to-teal-500 hover:from-teal-400 hover:to-lime-400 text-black hover:text-white;
+    box-shadow: 0 4px 15px rgba(150, 224, 114, 0.4), 0 0 20px rgba(11, 122, 117, 0.3);
+  }
+  
+  .medistacks-btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(150, 224, 114, 0.6), 0 0 30px rgba(11, 122, 117, 0.5);
+  }
+  
+  .medistacks-btn-secondary {
+    @apply medistacks-btn bg-gradient-to-r from-teal-500/20 to-lime-500/20 hover:from-teal-500/40 hover:to-lime-500/40 text-lime-300 hover:text-white border-2 border-lime-500/50 hover:border-lime-400;
+  }
+  
+  .medistacks-btn-ghost {
+    @apply medistacks-btn bg-transparent hover:bg-gradient-to-r hover:from-lime-500/10 hover:to-teal-500/10 text-lime-300 hover:text-white border-2 border-transparent hover:border-lime-500/30;
+  }
+  
+  .medistacks-btn-danger {
+    @apply medistacks-btn bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-400 hover:to-pink-400 text-white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  }
+  
+  .medistacks-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .medistacks-btn:hover::before {
+    left: 100%;
+  }
+  
+  .medistacks-btn-sm {
+    @apply px-4 py-2 text-xs rounded-lg;
+  }
+  
+  .medistacks-btn-md {
+    @apply px-6 py-3 text-sm rounded-xl;
+  }
+  
+  .medistacks-btn-lg {
+    @apply px-8 py-4 text-base rounded-2xl;
+  }
+  
+  .medistacks-btn-xl {
+    @apply px-12 py-6 text-lg rounded-3xl;
+  }
+
+  /* Legacy medical-button for backward compatibility */
+  .medical-button {
+    @apply medistacks-btn-primary medistacks-btn-md;
+  }
+  
+  .medical-input {
+    @apply border-2 border-teal-300 focus:border-lime-500 focus:ring-4 focus:ring-lime-500/20 bg-gradient-to-r from-medical-50 to-lime-50 rounded-xl;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(150, 224, 114, 0.6), 0 0 40px rgba(11, 122, 117, 0.4), 0 0 60px rgba(212, 220, 255, 0.3);
+  }
+  
+  .medical-logo {
+    filter: drop-shadow(0 0 10px rgba(150, 224, 114, 0.8)) drop-shadow(0 0 20px rgba(11, 122, 117, 0.6));
+  }
+  
+  .pulse-border {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #D4DCFF, #96E072, #0B7A75, #5ABF4A) 1;
+    animation: pulse-border 2s infinite;
+  }
+  
+  @keyframes pulse-border {
+    0%, 100% { border-image-source: linear-gradient(45deg, #D4DCFF, #96E072, #0B7A75, #5ABF4A); }
+    50% { border-image-source: linear-gradient(45deg, #5ABF4A, #0B7A75, #96E072, #D4DCFF); }
+  }
+  
+  .holographic {
+    background: linear-gradient(45deg, #D4DCFF 0%, #96E072 25%, #0B7A75 50%, #5ABF4A 75%, #D4DCFF 100%);
+    background-size: 400% 400%;
+    animation: holographic 4s ease infinite;
+  }
+  
+  @keyframes holographic {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+}

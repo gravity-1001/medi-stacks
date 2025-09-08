@@ -1,0 +1,14 @@
+# Clarinet testnet settings
+[network]
+name = "testnet"
+
+[accounts]
+[accounts.deployer]
+# User-provided TESTNET mnemonic
+mnemonic = "cycle idea cruise coin fluid more gravity jeans margin cover toddler increase"
+
+[accounts.default]
+mnemonic = "cycle idea cruise coin fluid more gravity jeans margin cover toddler increase"
+
+[contracts]
+medistacks1 = { deployment = "deployer" }

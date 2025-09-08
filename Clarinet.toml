@@ -1,0 +1,13 @@
+[project]
+name = "medi-stacks"
+authors = ["medi-stacks"]
+description = "Medi Stacks MVP - single-contract access control and monetization"
+telemetry = false
+
+[repl]
+costs_version = 2
+
+[contracts.medistacks1]
+path = "contracts/medistacks.clar"
+clarity_version = 2
+epoch = "3.2"

@@ -1,0 +1,18 @@
+---
+id: 1
+name: Medistacks Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "https://blockstream.info/testnet/api"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: medistacks1
+            expected-sender: ST3A27SWZ1V55S98N8ET07XYTC3D61QNQAT3DSMEN
+            cost: 15000000
+            path: contracts/medistacks.clar
+            anchor-block-only: true
+            clarity-version: 2
+      epoch: "3.2"
